@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Confirmation Page</title>
+	<script>
+		window.onload = function() {
+			// Get the query parameters from the URL
+			var urlParams = new URLSearchParams(window.location.search);
+
+			// Get the values of the socks from the query parameters
+			var sock1 = parseFloat(urlParams.get("sock1"));
+			var sock2 = parseFloat(urlParams.get("sock2"));
+			var sock3 = parseFloat(urlParams.get("sock3"));
+
+			// Calculate the total price of the three socks
+			var subtotal = sock1 + sock2 + sock3;
+
+			// Get the selected state from the query parameters
+			var state = urlParams.get("state");
+
+			// Calculate the sales tax based on the selected state
+			var taxRate = 0;
+			if (state === "AL") {
+				taxRate = 0.04;
+			} else if (state === "CA") {
+				taxRate = 0.075;
+			} else if (state === "NY") {
+				taxRate = 0.04;
+			} else {
+				taxRate = 0;
+			}
+			var tax = subtotal * taxRate;
+
+			// Calculate the total price, including sales tax
+			var total = subtotal + tax;
+
+			// Display the values on the page
+			document.getElementById("sock1").innerHTML = sock1.toFixed(2);
+			document.getElementById("sock2").innerHTML = sock2.toFixed(2);
+			document.getElementById("sock3").innerHTML = sock3.toFixed(2);
+			document.getElementById("subtotal").innerHTML = subtotal.toFixed(2);
+			document.getElementById("taxRate").innerHTML = (taxRate * 100).toFixed(2);
+			document.getElementById("tax").innerHTML = tax.toFixed(2);
+			document.getElementById("total").innerHTML = total.toFixed(2);
+		};
+	</script>
+</head>
+<body>
+	<h1>Confirmation Page</h1>
+
+	<p>Sock 1: $<span id="sock1"></span></p>
+	<p>Sock 2: $<span id="sock2"></span></p>
+	<p>Sock 3: $<span id="sock3"></span></p>
+	<p>Subtotal: $<span id="subtotal"></span></p>
+	<p>Sales Tax Rate: <span id="taxRate"></span>%</p>
+	<p>Sales Tax: $<span id="tax"></span></p>
+	<p>Total: $<span id="total"></span></p>
+</body>
+</html>
