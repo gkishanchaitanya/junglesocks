@@ -21,13 +21,13 @@
 			// Calculate the sales tax based on the selected state
 			var taxRate = 0;
 			if (state === "AL") {
-				taxRate = 0.04;
+				taxRate = 0.02;
 			} else if (state === "CA") {
-				taxRate = 0.075;
+				taxRate = 0.08;
 			} else if (state === "NY") {
-				taxRate = 0.04;
+				taxRate = 0.00;
 			} else {
-				taxRate = 0;
+				taxRate = 0.04;
 			}
 			var tax = subtotal * taxRate;
 
@@ -35,25 +35,64 @@
 			var total = subtotal + tax;
 
 			// Display the values on the page
-			document.getElementById("sock1").innerHTML = sock1.toFixed(2);
-			document.getElementById("sock2").innerHTML = sock2.toFixed(2);
-			document.getElementById("sock3").innerHTML = sock3.toFixed(2);
-			document.getElementById("subtotal").innerHTML = subtotal.toFixed(2);
-			document.getElementById("taxRate").innerHTML = (taxRate * 100).toFixed(2);
-			document.getElementById("tax").innerHTML = tax.toFixed(2);
-			document.getElementById("total").innerHTML = total.toFixed(2);
+			document.getElementById("sock1").innerHTML = '$' + sock1.toFixed(2);
+			document.getElementById("sock2").innerHTML = '$' + sock2.toFixed(2);
+			document.getElementById("sock3").innerHTML = '$' + sock3.toFixed(2);
+			document.getElementById("subtotal").innerHTML = '$' + subtotal.toFixed(2);
+			document.getElementById("taxRate").innerHTML = (taxRate * 100).toFixed(2) + '%';
+			document.getElementById("tax").innerHTML = '$' + tax.toFixed(2);
+			document.getElementById("total").innerHTML = '$' + total.toFixed(2);
 		};
 	</script>
 </head>
-<body>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+<body style="padding-left: 20px;">
 	<h1>Confirmation Page</h1>
-
-	<p>Sock 1: $<span id="sock1"></span></p>
-	<p>Sock 2: $<span id="sock2"></span></p>
-	<p>Sock 3: $<span id="sock3"></span></p>
-	<p>Subtotal: $<span id="subtotal"></span></p>
-	<p>Sales Tax Rate: <span id="taxRate"></span>%</p>
-	<p>Sales Tax: $<span id="tax"></span></p>
-	<p>Total: $<span id="total"></span></p>
+    <br>
+    <div class="row">
+        <h4>
+            <div class="col-md-1"><p for="heading">Lion</label></div>
+            <div class="col-md-1"><p for="heading" id="sock1"></label></div>
+        </h4>
+    </div>
+    <div class="row">
+        <h4>
+            <div class="col-md-1"><p for="heading">Tiger</label></div>
+            <div class="col-md-1"><p for="heading" id="sock2"></label></div>
+        </h4>
+    </div>
+    <div class="row">
+        <h4>
+            <div class="col-md-1"><p for="heading">Giraffe</label></div>
+            <div class="col-md-1"><p for="heading" id="sock3"></label></div>
+        </h4>
+    </div>
+    <br>
+    <div class="row">
+        <h4>
+            <div class="col-md-1"><p for="heading">Subtotal</label></div>
+            <div class="col-md-1"><p for="heading" id="subtotal"></label></div>
+        </h4>
+    </div>
+    <br>
+    <div class="row">
+        <h4>
+            <div class="col-md-1"><p for="heading">Tax Rate</label></div>
+            <div class="col-md-1"><p for="heading" id="taxRate"></label></div>
+        </h4>
+    </div>
+    <div class="row">
+        <h4>
+            <div class="col-md-1"><p for="heading">Sales Tax</label></div>
+            <div class="col-md-1"><p for="heading" id="tax"></label></div>
+        </h4>
+    </div>
+    <br>
+    <div class="row">
+        <h4>
+            <div class="col-md-1"><p for="heading">Total</label></div>
+            <div class="col-md-1"><p for="heading" id="total"></label></div>
+        </h4>
+    </div>
 </body>
 </html>
